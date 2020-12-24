@@ -13,23 +13,23 @@ int main() {
 		for (int i = 0, j = 0; a[i] != '\0'; i++) {
 			if (a[i] != ',') {
 				temp1[j]=a[i];
-        //不能使用strcat，因为该函数生效对象是该地址以后的所有字符串。
+				//不能使用strcat，因为该函数生效对象是该地址以后的所有字符串。
 				j++;
 			}
 		}
 		int c = strlen(temp1), sum1 = 0, n1 = 1;
 		for (int i = c - 1; i > 0; i--) {
 			sum1 +=( n1 * (temp1[i]-48));
-      //char型数字转为int型，0的ASCII码为48。
+			//char型数字转为int型，0的ASCII码为48。
 			n1 = 10 * n1;
 		}
 		if (temp1[0] == '-') {
-    //前置负号单独判断。
+			//前置负号单独判断。
 			sum1 = (-1) * sum1;
 		}
 		else {
 			sum1 += n1 * (temp1[0]-48);
-      //同上
+			//同上
 		}
 
 		for (int i = 0,  j = 0; b[i] != '\0'; i++) {
