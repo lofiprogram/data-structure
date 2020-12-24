@@ -8,7 +8,7 @@ using namespace std;
 int main() {
 	char a[20] = {}, b[20] = {};
 	while (scanf("%s%s", a, b) != EOF,a||b) {
-  //写上a||b会导致oj判断输出超限。
+		//写上a||b会导致oj判断输出超限。
 		char temp1[20] = {}, temp2[20] = {};
 		for (int i = 0, j = 0; a[i] != '\0'; i++) {
 			if (a[i] != ',') {
