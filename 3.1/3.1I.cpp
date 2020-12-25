@@ -16,8 +16,10 @@ int main() {
 		for (int i = 0; i < n; i++) {
 			char a, b;
 			getchar();
+			//该getchar()用于吸收n后的'\n'。
 			scanf("%c", &a);
 			getchar();
+			//该getchar()用于吸收字母间的' '。
 			scanf("%c", &b);
 
 			if (a == 'C' && b == 'J') {
