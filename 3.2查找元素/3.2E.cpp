@@ -15,6 +15,7 @@ int main() {
 	int n;
 	while (scanf("%d", &n) != EOF) {
 		while (n--) {
+		//因为缺少这步出错，考虑清楚循环条件。
 			int m;
 			scanf("%d", &m);
 			for (int i = 0; i < m; i++) {
