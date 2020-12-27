@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 int main()
 {
@@ -32,3 +31,7 @@ int main()
 	}
 	return 0;
 }
+
+/*
+https://blog.csdn.net/syd1091245120/article/details/81369231
+*/
