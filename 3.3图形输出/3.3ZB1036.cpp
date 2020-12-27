@@ -8,6 +8,7 @@ int main() {
 	int n;
 	char c;
 	while (scanf("%d %c", &n,&c) != EOF) {
+	//注意scanf中%d和%c中间这个空格，否则c=' '。
 		int row;
 		if (n % 2 == 1)
 			row = (n + 1) / 2;
