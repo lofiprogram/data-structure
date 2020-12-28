@@ -26,6 +26,7 @@ int main() {
 				p = p * a;
 			}
 		}
+		//n进制转换为十进制。
 
 		int i = 0;
 		char str[70];
@@ -34,6 +35,7 @@ int main() {
 			num = num / b;
 		} while (num != 0);
 		i = i - 1;
+		//十进制转换为n进制。
 
 		for (; i >= 0; i--) {
 			if (str[i] >= 0 && str[i] <= 9) {
