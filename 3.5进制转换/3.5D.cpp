@@ -9,7 +9,7 @@ using namespace std;
 int main(){
 	int n;
 	while (scanf("%d", &n) != EOF) {
-		int a[1000] = {};
+		int a[10] = {};
 		int i = 0;
 		do {
 			a[i++] = n % 8;
