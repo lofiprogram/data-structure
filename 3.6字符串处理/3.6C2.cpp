@@ -2,6 +2,14 @@
 https://github.com/maximusyoung007/codeup/blob/master/3.6%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/1808.cpp
 */
 
+/*
+    作者：Sober__
+    来源：CSDN
+    原文：https://blog.csdn.net/Joah_Ge/article/details/80630309
+    思路：写一个compare函数，用来比较s的第i个位置开始后面是否有和s1相同的字符串，
+    如果有的话，将那些字符赋值为’?’，然后对i从0遍历。最后输出非问号和空格的字符
+*/
+
 #include<cstdio>
 #include<cstring>
 int compare(char s1[],char s[],int i){
@@ -34,3 +42,5 @@ int main() {
         printf("\n");
     }
 }
+
+
