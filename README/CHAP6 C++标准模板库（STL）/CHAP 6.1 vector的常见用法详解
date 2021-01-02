@@ -1,0 +1,96 @@
+CHAP6 C++标准模板库（STL）
+
+标准模板库 Standard Template Library
+封装了很多容器
+
+6.1 vector的常见用法详解
+
+vector 向量 变长数组 长度根据需要而自动改变的数组
+
+常见用法
+
+普通数组会超内存
+用来以邻接表的方式存储图（应付无法使用邻接矩阵的题目（结点数太多），害怕使用指针实现邻接表的情况）
+
+头文件 #include<vector>
+还需在头文件下加上 using namespace std;
+
+1 vector的定义
+
+vector<typename>name;
+typename 可以是任何基本类型 也可以是STL标准容器 例如vector set queue等
+如果typename也是一个STL容器，定义的时候要记得在>>符号之间加上空格，因为C++11之前标准的编译器会将其视为移位操作
+vector<int>name;
+vector<vector<int> >name;//>>之间要加空格
+
+Arrayname[]中的每一个元素都是一个vector
+初学者可以把vector数组当作两个维都可变长的二维数组理解
+定义vector数组
+vector<typename>Arrayname[arraySize];
+vector<int>vi[100];
+这样Arrayname[0]~Arrayname[arraySize-1]中每一个都是一个vector容器
+与vector<vector<int> >name不同的是，这种写法的一维长度已经固定为arraySize，另一维才是变长的
+
+2 vector容器内元素的访问
+
+vector一般有两种访问方式：通过下标访问或通过迭代器访问
+
+A 通过下标访问
+
+B 通过迭代器访问
+
+迭代器iterator可以理解为一种类似指针的东西
+定义为：vector<typename>::iterator it;
+这样it就是一个vector<typename>::iterator型的变量
+可以通过*it来访问vector里的元素
+
+vi.push_back(i);//push_back(i)在vi的末尾添加i
+vector<typename>::iterator it=vi.begin;//vi.begin()为取vi的首元素地址，而it指向这个地址
+printf(“%d”,*(it+i));//输出vi[i]
+vi[i]和*(vi.begin()+i)是等价的
+
+end()函数
+end()并不是取vi的尾元素地址，而是取尾元素地址的下一个地址
+end()作文迭代器末尾标志，不存储任何元素
+左闭右开
+
+迭代器还实现了两种自加操作：++it和it++
+遍历vector中元素又可写为
+for(vector<int>::iterator it=vi.begin(); it!=vi.end(); it++)
+//vector的迭代器不支持it<vi.end()写法，因此循环条件只能用it!=vi.end()
+
+需指出，在常用STL容器中，只有在vector和string中，才允许使用vi.begin()+3这种迭代器加上整数的写法
+
+3 vector常用函数实例解析
+
+A push_back() 即在vector后面添加一个元素，时间复杂度为O(1)
+
+B pop_back() 用以删除vector的尾元素，时间复杂度为O(1)
+
+C size() size()用来获得vector中元素的个数，时间复杂度为O(1)
+size()返回的是unsigned类型，一般来说用%d不会出很大的问题，这一点对所有STL容器都是一样的
+i<vi.size();
+
+D clear() clear()用来清空vector中的所有元素，时间复杂度为O(N)，其中N为vector中元素的个数
+
+E insert() insert(it,x)用来向vector的任意迭代器it处插入一个元素x，时间复杂度为O(N)
+
+F erase() erase()有两种用法：删除单个元素、删除一个区间内的所有元素，时间复杂度均为O(N)
+
+F1 删除单个元素
+erase(it)即删除迭代器为it处的元素
+
+F2 删除一个区间内的所有元素
+erase(first,last)即删除[first,last)内的所有元素
+删除这个vector内的所有元素，正确写法应该是vi.erase(vi.begin(),vi.end())
+
+4 vector的常见用途
+
+A 储存数据
+A1 vector本身可以作为数组使用，而且在一些元素个数不确定的场合可以很好地节省空间
+A2 有些场合需要根据一些条件把部分数据输出在同一行，数据中间用空格隔开。
+由于输出的个数是不确定的，为了更方便地处理最后一个满足条件的数据后面不输出额外的空格，可以先用vector记录所有需要输出的数据，然后一次性输出。
+
+B 用邻接表存储图
+
+
