@@ -44,5 +44,13 @@ int main() {
 	return 0;
 }
 
-	
+
+//分析：考虑到string、cin、cout会超时，可以使用hash(26*26*26*10+10)将学生姓名变为int型，然后存储在vector里面。
+
+/*
+https://blog.csdn.net/liuchuo/article/details/52154133
+*/
+
+
+
 
