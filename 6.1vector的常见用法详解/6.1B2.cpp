@@ -44,7 +44,22 @@ int main() {
 }
 
 
-//
+/*
+sort函数里第三个参数是排序的方法
+可以是从大到小也可是从小到大
+不写第三个参数，此时默认的排序方法是从小到大排序
+
+如要实现从大到小排序
+则可以添加一个比较函数
+
+bool complare(int a,int b)
+{
+    return a>b;
+}
+
+sort(a,b,complare);//在这里就不需要对complare函数传入参数了
+
+*/
 
 /*
 https://blog.csdn.net/chenghao_test/article/details/70143303
