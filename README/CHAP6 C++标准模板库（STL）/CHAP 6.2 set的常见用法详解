@@ -1,0 +1,130 @@
+6.2 set的常见用法详解
+
+set 译为集合 是一个内部自动有序且不含重复元素的容器
+
+对于需要去掉重复元素的情况
+且有可能因这些元素比较大或者类型不是int型而不能直接开散列表
+在该种情况下就可以用set来保留元素本身而不考虑他的个数
+上述情况也可以通过再开一个数组进行下标和元素的对应来解决
+但是set提供了更为直观的接口
+并且加入set之后可以实现自动排序
+因此熟练使用swt可以再做某些题时减少思维量
+
+使用set
+需要添加set头文件
+#include<set>
+using namespace std;
+
+1 set的定义
+
+set<typename>name;
+
+其定义写法和vector基本一样
+大部分STL定义皆如此
+typename依然可以是任何基本类型
+int double char 结构体
+STL标准容器 vector set queue
+
+如果typename是一个STL容器
+定义时要记得在>>符号之间加上空格
+
+set<int>name;
+
+set数组的定义和vector相同
+set<typename>Arrayname[arraySize];
+set<int>a[100];
+这样Arrayname[0]~Arrayname[arraySize-1]中的每一个都是一个set容器
+
+2 set容器内元素的访问
+
+set只能通过迭代器iterator访问
+set<typename>::iterator it;
+set<int>::iterator it;
+
+这样就得到了迭代器it，并且可以通过*it来访问set里的元素
+由于除开vector和string之外的STL容器都不支持*(it+i)的访问方式
+因此枚举时只能
+
+it++;
+printf(“%d”,*it);
+
+用st.insert();插入3 5 2 3四个元素
+再输出
+得到2 3 5
+set内的元素自动递增排序，并且自动去除了重复元素
+
+3 set常用函数实例解析
+
+A insert()
+
+insert(x)可将x插入set容器中
+并且自动递增排序和去重
+时间复杂度O(logN)
+其中N为set内的元素个数
+
+B find()
+
+find(value)返回set中对应值为value的迭代器
+时间复杂度为O(logN)
+N为set内的元素个数
+
+printf(“%d\n”,*(st.find(2));
+
+C erase()
+
+两种用法：
+删除单个元素
+删除一个区间内的所有元素
+
+C1 删除单个元素
+
+st.erase(it) it为所需要删除元素的迭代器
+时间复杂度为O(1)
+可以结合find()函数来使用
+st.erase(st.find(100));
+
+st.erase(value) value为所需要删除元素的值
+时间复杂度为O(logN)
+N为set内的元素个数
+st.erase(100);
+
+C2 删除一个区间内的所有元素
+
+st.erase(first,last)
+可以删除一个区间内的所有元素
+first为所需要删除区间的起始迭代器
+而last则为所需要删除区间的末尾迭代器的下一个地址
+也即为删除[first,last)
+时间复杂度为O(last-first)
+
+set<int>::iterator it=st.find(30);
+st.erase(it,st.end());
+
+D size()
+
+size()用来获得set内元素的个数，时间复杂度为O(1)
+
+printf(“%d\n”,st.size());
+
+E clear()
+
+clear()用来清空set中的所有元素，复杂度为O(N)，其中N为swt内元素的个数
+
+st.clear();
+
+4 set的常见用途
+
+set最主要的作用是自动去重并按升序排序
+因此碰到需要去重但是不方便直接开数组的情况
+可以尝试用set解决
+
+set中元素是唯一的，如果需要处理不唯一的情况
+则需要使用multiset
+
+另外C++11标准中还增加了unordered_set
+以散列代替set内部的红黑树实现
+红黑树，一种自平衡二叉查找树
+使其可以用来处理只去重但不排序的需求
+速度比set要快很多
+
+
