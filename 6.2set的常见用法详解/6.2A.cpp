@@ -45,7 +45,7 @@ int main() {
 
 set里没有v[x][i]==v[y][j]这种用法
 要想访问v[x]里的值只能使用iterator
-本代码使用的是find，find本身复杂度为
+本代码使用的是find，find函数的时间复杂度为O(logN)
 也可这样写：
 for (set<int>::iterator k = v[x].begin(); k != v[x].end(); k++) {
 	for (set<int>::iterator s = v[y].begin(); s != v[y].end(); s++) {
@@ -55,9 +55,9 @@ for (set<int>::iterator k = v[x].begin(); k != v[x].end(); k++) {
 		}
 	}
 }
+如此写在编译器中也能得到结果，但在OJ中会提示时间超限
+应该是两个for循环的时间复杂度O(N^2)导致的
 
 
 */
-
-
 
