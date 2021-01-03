@@ -40,5 +40,24 @@ int main() {
 	return 0;
 }
 
-	
+/*
+
+
+set里没有v[x][i]==v[y][j]这种用法
+要想访问v[x]里的值只能使用iterator
+本代码使用的是find，find本身复杂度为
+也可这样写：
+for (set<int>::iterator k = v[x].begin(); k != v[x].end(); k++) {
+	for (set<int>::iterator s = v[y].begin(); s != v[y].end(); s++) {
+		if (*k == *s) {
+			sim++;
+			sum--;
+		}
+	}
+}
+
+
+*/
+
+
 
