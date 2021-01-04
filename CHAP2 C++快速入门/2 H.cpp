@@ -1,3 +1,4 @@
+//1
 #include<cstdio>
 #include<cstring>
 using namespace std;
@@ -21,7 +22,7 @@ int main() {
 }
 
 
-2
+//2
 #include<cstdio>
 #include<cstring>
 
@@ -51,7 +52,7 @@ int main() {
 }
 
 
-
+//3
 /*
 int min(int x[]) {
     int temp,mini=x[0];
