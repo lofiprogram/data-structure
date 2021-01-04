@@ -1,0 +1,69 @@
+2.3 选择结构
+
+2.3.1 if语句
+
+if(A){
+
+}
+
+//
+
+if(A){
+
+}else{
+
+}
+
+//
+
+if(A){
+
+else if(B){
+
+}else{
+
+}
+
+//在else分支下再根据某个条件来选择不同的语句
+
+技巧：
+在if条件中，如果表达式为"!=0"或"==0"，可以采用简单的写法
+if(n!=0) if(n)
+if(n==0) if(!n)
+
+2.3.2 if语句的嵌套
+
+if(A){
+
+  if(B){
+  
+  }else{
+  
+  }
+}else{
+
+}
+
+// 在if或else执行的内容中使用if语句
+
+2.3.3 switch语句
+
+switch(a+b){
+
+  case 2:
+  
+  break;
+  
+  case7:
+  
+  break;
+  
+  default:
+  
+}
+
+//case默认把两个case间的内容全部作为上一个case的内容
+//break的作用在于可以结束当前switch语句
+
+
+
