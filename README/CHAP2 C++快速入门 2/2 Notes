@@ -1,0 +1,21 @@
+1
+if(a)=if(a!=0),if(!a)=if(a==0)
+
+2
+#include<climits>
+INT_MAX
+
+3
+#include<cmath>
+pow(a,b);//a的b次方
+
+4
+volatile int i//追踪变量的变化值，方便进行观察
+
+5
+if(1<a<2)的使用是错误的，应该为if(1<a&&a<2)
+
+6
+VS中使用scanf和printf的方法
+#define _CRT_SECURE_NO_WARNINGS
+
