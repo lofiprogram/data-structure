@@ -160,9 +160,35 @@ I1 str.find(str2)
 I2 str.find(str2.pos)
 从str的pos位号开始匹配str2
 返回值与上相同
-时间复杂度为0(nm)
+时间复杂度为O(nm)
 n为str的长度
 m为str2的长度
+
+if(str.find(str2)!=string::npos){
+  cout<<str.find(str2)<<endl;
+}
+if(str.find(str2,7)!=string::npos){
+  cout<<str.find(str2,7)<<endl;
+}
+
+J replace()
+
+J1 str.replace(pos,len,str2)
+把str从pos号位开始
+长度为len的子串替换为str2
+
+J2 str.replace(it1,it2,str2)
+把str的迭代器[it2,it2)范围内的子串替换为str2
+时间复杂度为O(str.length())
+
+str="Maybe you will turn around.";
+str2="will out";
+str3="surely";
+cout<<str.replace(10,4,str2)<<endl;
+cout<<str.replace(str.begin(),str.begin()+5,str3)<<endl;
+
+Maybe you will not turn around.
+surely you will not turn around.
 
 
 
