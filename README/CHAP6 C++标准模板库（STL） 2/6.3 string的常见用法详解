@@ -1,2 +1,147 @@
 6.3 string的常见用法详解
 
+C中使用char str[]来存放字符串
+使用字符数组操作复杂且易出错
+C++在STL中加入了string类型
+对字符串常用的需求功能进行了封装
+使操作更方便
+
+使用string
+需添加
+#include<string>
+using namespace std;
+需注意
+string.h和string是不一样的头文件
+
+1 string的定义
+
+string str;
+string str="abcd";//初始化
+
+2 string中内容的访问
+
+A 通过下标访问
+
+像字符数组那样用str[i]来访问
+如果要读入和输出整个字符串
+则只能使用cin和cout
+cin>>str;
+cout<<str;
+如要使用printf来输出string
+需使用c_str()将string类型转换为字符数组进行输出
+printf("%s\n",str.c_str());
+
+B 通过迭代器访问
+
+一般通过A即可满足访问的需求
+但有些函数比如insert()与erase()则要求以迭代器为参数
+
+由于string不像其他STL容器那样需要参数，其定义为
+string::iterator it;
+这样便得到了迭代器it
+并可以通过*it来访问string里的每一位
+printf("%c",*it);
+
+需指出string和vector一样，支持直接对迭代器进行加减某个数字
+例如str.begin()+3
+
+3 string常用函数实例解析
+
+A operator+=
+
+这是string的加法
+可以将两个string直接拼接起来
+
+string str1="abc";
+string str2="xyz";
+string str3;
+str3=str1+str2;
+str1+=str2;
+输出
+str1="abcxyz"
+str2="abcxyz"
+
+B compare operator
+
+两个string类型可以直接使用
+==
+!=
+<
+<=
+>
+>=
+比较大小
+比较规则是字典序
+
+if(str1<str2)printf("ok\n");
+
+C length()/size()
+
+用length()返回string的长度
+即存放的字符数
+时间复杂度为O(1)
+size()与length()基本相同
+printf("%d %d\n",str.length(),str.size());
+
+D insert()
+
+string的insert()函数有很多种写法
+以下给出几个常用的写法
+时间复杂度为O(N)
+
+D1 insert(pos,string)
+在pos号位置插入字符串string
+
+str.insert(3,str2);//往str[3]处插入str2，
+                   //str2的位置直接写要插入的元素"abc"也是可以的
+     
+D2 insert(it,it2,it3)
+it为原字符串的欲插入位置，it2和it3为待插入字符串的守尾迭代器
+用来表示串[it2,it3)将被插入在it的位置上
+
+str.insert(str.begin()+3,str2.begin(),str2.end());
+
+E erase()
+erase()有两种用法：
+删除单个元素
+删除一个区间内的所有元素
+时间复杂度均为O(N)
+
+E1 删除单个元素
+str.erase(it)用于删除单个元素
+it为需要删除的元素的迭代器
+
+str.erase(str.begin()+4);//删除4号位
+
+E2 删除一个区间内的所有元素
+有两种方法
+
+E21 str.erase(first,last)
+first为需要删除的区间的其实迭代器
+last则为需要删除的区间的末尾迭代器的下一个地址
+即为删除[first,last)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
