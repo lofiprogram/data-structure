@@ -58,8 +58,8 @@ string str3;
 str3=str1+str2;
 str1+=str2;
 输出
+str3="abcxyz"
 str1="abcxyz"
-str2="abcxyz"
 
 B compare operator
 
