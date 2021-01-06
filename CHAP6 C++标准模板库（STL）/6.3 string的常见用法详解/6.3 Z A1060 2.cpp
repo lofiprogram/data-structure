@@ -18,11 +18,6 @@ string deal(string s,int& e) {
 		s.erase(s.begin());
 	}
 	//该循环去除前导零
-	
-	if (s.length() == 0) {
-		e = 0;
-	}
-	//去除前导零后s的长度为0，该数即为0
 
 	if (s[0] == '.') {
 		//去除前导0后第一位数为"."，说明s是小于1的数
@@ -50,6 +45,11 @@ string deal(string s,int& e) {
 			//删除小数点
 		}
 	}
+	
+	if (s.length() == 0) {
+		e = 0;
+	}
+	//去除前导零后s的长度为0，该数即为0
 
 	int num = 0;
 	k = 0;
