@@ -157,7 +157,7 @@ I1 str.find(str2)
 如果str2不是str的子串
 那么返回string::npos
 
-I2 str.find(str2.pos)
+I2 str.find(str2,pos)
 从str的pos位号开始匹配str2
 返回值与上相同
 时间复杂度为O(nm)
