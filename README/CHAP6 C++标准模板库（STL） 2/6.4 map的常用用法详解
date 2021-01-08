@@ -35,6 +35,44 @@ using namespace std;
 
 1 map的定义
 
+map<typename1,typename2>mp;
+第一个typename1是键的类型（映射前类型）
+第二个typenmae2是值的类型（映射后类型）
+如果是int型映射到int型，相当于普通的int型数组
+如果是字符串到整型的映射
+必须使用string而不是char数组
+map<string,int>mp;
+因为char数组作为数组，是不能被作为键值的
+map的键和值也可以是STL容器
+map<set<int>,string>mp;
+
+2 map容器内元素的访问
+
+map一般有两种访问方式：
+通过下标访问
+通过迭代器访问
+
+A 通过下标访问
+
+对于map<char,int>mp来说
+可以使用mp['c']的方式来访问它对应的整数
+可以使用mp['c']=20这样的方式
+需注意
+map中的键是唯一的
+
+B 通过迭代器访问
+
+map<typename1,typename2>::iterator it;
+map迭代器的使用方式和其他STL容器的迭代器不同
+因为map的每一对映射都有两个typename
+这决定了必须能通过一个it来同时访问键和值
+事实上，map可以通过
+it->first来访问键
+it->second来访问值
+
+
+
+
 
 
 
