@@ -70,6 +70,90 @@ map迭代器的使用方式和其他STL容器的迭代器不同
 it->first来访问键
 it->second来访问值
 
+mp['m']=20;
+mp['r']=30;
+mp['a']=40;
+for(map<hcar,int>::iterator it=mp.begin();it!=mp.end();it++){
+     printf("%c %d",it->first,it->second);
+}
+
+a 40
+m 20
+r 30
+
+map会以键从小到大自动排序
+a<m<r
+
+这是由于map内部是使用红黑树实现的（set也是）
+在建立映射的过程中会自动实现从小到大的排序功能
+
+3 map常用函数实例解析
+
+A find()
+
+find(key)返回键为key的映射的迭代器
+时间复杂度为O(logN)，N为map中映射的个数
+
+map<char,int>::iterator it=mp.find('b');
+printf("%c %d\n",it->first,it->second);
+
+B erase()
+
+erase()有两种用法：
+删除单个元素
+删除一个区间内的所有元素
+
+B1 删除单个元素
+
+B11 mp.erase(it)，it为需要删除的元素的迭代器
+时间复杂度为0(1)
+map<char,int>::iterator it=mp.find('b');
+mp.erase(it);
+
+B12 mp.erase(key),key为欲删除的映射的键
+时间复杂度为O(logN)，N为map内元素的个数
+mp.erase('b');
+
+B2 删除一个区间内的所有元素
+
+mp.erase(first,last)
+first为需要删除的区间的起始迭代器
+last则为需要删除的区间的末尾迭代器的下一个地址
+也即为删除左闭右开的区间[first,last)
+时间复杂度为O(last-first)
+
+mp.erase(it,mp.end());
+
+C size()
+
+size()用来获得map中映射的对数
+时间复杂度为O(1)
+
+printf("%d\n",mp.size());
+
+D clear()
+
+clear()用来清空map中的所有元素
+复杂度为O(N)
+其中N为map中元素的个数
+
+4 map的常见用途
+
+A 需要建立字符（或字符串）与整数之间的映射的题目
+  使用map可减少代码量
+B 判断大整数或者其他类型数据是否存在的题目
+  可以把map当bool数组用
+C 字符串和字符串的映射
+
+map的键和值是唯一的
+如果一个键需要对应多个值
+就只能用multimap
+
+另外，C++11标准中增加了unordered_map
+以散列代替map内部的红黑树实现
+可以用来处理只映射而不按key排序的需求
+速度比map要快得多
+
 
 
 
