@@ -50,6 +50,15 @@ int main() {
 			hash[temp] = 1;
 	}
 	
+	//处理最后一个单词
+	//涉及题目中对单词的定义
+	//最后一个字符不管是不是字母数字都要算作单词
+	//不然最后一个测试点过不了
+	//这个定义在题目倒数第二句话：
+	//Here a word is defined as 
+	//a continuous sequence of alphanumerical characters 
+	//separated by non-alphanumerical characters or the line beginning/end.
+	
 	unordered_map<string, int>::iterator it;
 	string a;
 	int m = -1;
