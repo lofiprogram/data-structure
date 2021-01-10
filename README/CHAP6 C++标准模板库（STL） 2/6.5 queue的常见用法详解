@@ -1,0 +1,86 @@
+6.5 queue的常见用法详解
+
+queue译为队列
+在STL中主要则是实现了一个先进先出的容器
+
+1 queue的定义
+
+#include<queue>
+using namespace std;
+
+queue<typename>name;
+typename可以是任意基本数据类型或容器
+
+2 queue容器内元素的访问
+
+由于queue本身就是一种先进先出的限制性数据结构
+因此在STL中只能通过front()来访问队首元素
+或是通过back()来访问队尾元素
+
+1 2 3 4 5
+printf("%d %d\n",q.front(),q.back());
+1 5
+
+3 queue常用函数实例解析
+
+A push()
+
+push(x)将x进行入队
+时间复杂度为O(1)
+q.push(i);
+
+B front()/back()
+
+front()获得队首元素
+back()获得队尾元素
+时间复杂度为O(1)
+
+C pop()
+
+pop()令队首元素出队
+时间复杂度为O(1)
+
+1 2 3 4 5
+for(int i=1;i<=3;i++){
+    q.pop(i);
+}
+printf("%d\n",q.front());
+4
+
+D empty()
+
+empty()检查queue是否为空
+返回ture则空
+返回false则非空
+时间复杂度为O(1)
+
+if(q.empty()==ture)
+
+E size()
+
+size()返回queue内元素的个数
+时间复杂度为O(1)
+
+printf("%d\n",q.size());
+
+4 queue的常见用途
+
+当需要实现广度优先搜索时
+可以不用自己动手实现一个队列
+而是用queue作为代替
+以提高程序的准确性
+
+还需注意
+使用front()和pop()函数前
+必须用empty()判断队列是否为空
+否则可能因为队空而出现错误
+
+扩展
+STL容器中还有两种容器跟队列相关
+分别是双端队列deque
+和优先队列(priority_queue)
+前者是首尾皆可插入和删除的队列
+后者是使用堆实现的默认将当前队列最大元素置于队首的容器
+
+
+
