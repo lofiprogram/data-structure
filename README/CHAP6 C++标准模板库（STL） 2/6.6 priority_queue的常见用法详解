@@ -1,2 +1,69 @@
 6.6 priority_queue的常见用法详解
 
+priority_queue又称为优先队列
+其底层是用堆来进行实现的
+
+在优先队列中
+队首元素一定是当前队列中优先级最高的那一个
+例如
+桃子 优先级3
+梨子 优先级4
+苹果 优先级1
+出队顺序则为 梨子 桃子 苹果
+
+当然，可以在任何时候往优先队列里面加入元素
+优先队列底层的数据结构堆（heap）会随时调整结构
+使每次的队首元素都是优先级最大的
+
+优先级则是规定出来的
+
+1 priority_queue的定义
+
+使用优先队列需添加
+#include<queue>
+using namespace std;
+
+priority_queue<typename>name;
+typename可以是任意基本数据类型或容器
+
+2 priority_queue容器内元素的访问
+
+和队列不一样
+优先队列没有front()函数与back()函数
+只能通过top()函数来访问队首元素（堆顶元素）
+
+3 4 1
+printf("%d\n",q.top());
+4
+
+3 priority_queue常用函数实例解析
+
+A push()
+
+push(x)将令x入队
+时间复杂度为O(logN)
+N为当前优先队列中元素的个数
+
+B top()
+
+top()可以获得队首元素
+时间复杂度为O(1)
+
+C pop()
+
+pop()可以令队首元素出队
+时间复杂度为O(logN)
+其中N为当前优先队列中的元素个数
+
+
+
+
+
+
+
+
+
+
+
+
+
