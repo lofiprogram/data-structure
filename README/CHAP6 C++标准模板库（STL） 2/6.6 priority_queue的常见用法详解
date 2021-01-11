@@ -171,12 +171,12 @@ struct fruit{
     }
 }f1,f2,f3;
 
-priority_queue<fruit>q;
-f.name="桃子";f.price=3;
-f.name="梨子";f.price=4;
-f.name="苹果";f.price=1;
-q.push(f);q.push(f);q.push(f);
-cout<<q.top().name<<q.top().price<<endl;
+    priority_queue<fruit>q;
+	f1.name = "桃子"; f1.price = 3;
+	f2.name = "梨子"; f2.price = 4;
+	f3.name = "苹果"; f3.price = 1;
+	q.push(f1); q.push(f2); q.push(f3);
+	cout << q.top().name << q.top().price << endl;
 
 苹果 1
 
