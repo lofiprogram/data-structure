@@ -72,5 +72,5 @@ int main() {
 	return 0;
 }
 
-	
+//0x00BDE7FA 处(位于 ConsoleApplication2.exe 中)引发的异常: 0xC0000005: 写入位置 0x61542830 时发生访问冲突。
 
