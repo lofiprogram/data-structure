@@ -32,9 +32,14 @@ typename可以是任意基本数据类型或容器
 优先队列没有front()函数与back()函数
 只能通过top()函数来访问队首元素（堆顶元素）
 
-3 4 1
+q.push(3);
+q.push(4);
+q.push(1);
+printf("%d\n",q.top());
+q.pop();
 printf("%d\n",q.top());
 4
+3
 
 3 priority_queue常用函数实例解析
 
@@ -54,6 +59,65 @@ C pop()
 pop()可以令队首元素出队
 时间复杂度为O(logN)
 其中N为当前优先队列中的元素个数
+
+D empty()
+
+empty()检测优先队列是否为空
+返回ture则空
+返回false则非空
+时间复杂度为O(1)
+
+if(q.empty()==true){}
+
+E size()
+
+size()返回优先队列内元素的个数
+时间复杂度为O(1)
+
+printf("%d\n",q.size());
+
+4 priority_queue内元素优先级的设置
+
+如何定义优先队列内元素的优先级是运用好优先队列的关键
+下面分别介绍基本数据类型
+例如int double char 
+与结构体类型的优先级设置方法
+
+A 基本数据类型的优先级设置
+
+此处指的基本数据类型就是int型 double型 char型等
+可以直接使用的数据类型
+优先队列对它们的优先级设置
+一般是数字大的优先级越高
+因此队首元素就是优先队列内元素最大的那个
+（如果是char型，则是字典序最大的）
+
+对基本数据类型来说
+下列两种优先队列的定义是等价的
+以int型为例
+
+priority_queue<int>q;
+priority_queue<int,vector<int>,less<int> >q;
+
+可以发现第二种定义方式多出了两个参数
+
+其中第二个参数vector<int>填写的是
+来承载底层数据结构堆(heap)的容器
+如果第一个参数是double型或者char型
+此处只需要填写
+vector<double>或vector<char>
+
+第三个参数less<int>表示
+数字大的优先级越大
+而greater<int>表示数字小的优先级越大
+如需想让优先队列总是把最小的元素放在队首
+只需进行如下定义：
+priority_queue<int,vector<int>,greater<int> >q;
+
+事实上，即便是基本数据类型
+也可以使用下面讲解的结构体的优先级设置方法
+
+
 
 
 
