@@ -197,18 +197,46 @@ cout<<q.top().name<<q.top().price<<endl;
 不妨记住
 优先队列的这个函数与sort中的cmp函数的效果是相反的
 
+有没有办法跟sort中的cmp函数那样写在结构体外面呢
+自然是有办法的
+只需要把friend去掉
+把小于号改成一对小括号
+然后把重载的函数写在结构体外面
+同时将其用struct包装起来
 
+struct cmp{
+    bool operator () (fruit f1,fruit f2){
+        return f1.price>f2.price;
+    }
+};
 
+在这种情况下，需要用之前讲解的第二种定义方法来定义优先队列
+priority_queue<fruit,vector<fruit>,cmp>q;
+只是把greater<>换成了cmp
 
+即便是基本数据类型或者其他STL容器（例如set）
+也可以通过同样的方式来定义优先级
 
+最后指出
+如果结构体内的数据较为庞大（例如出现了字符串或者数组）
+建议使用引用来提高效率
+此时比较类的参数中需要加上"const"和"&"
+friend bool operator < (const fruit &f1,const furit &f2){
+    return f1.price>f2.price;
+}
+bool operator () (const fruit &f1,const furit &f2){
+    return f1.price>f2.price;
+}
 
+5 priority_queue的常见用途
 
+priority_queue可以解决一些贪心问题
+也可以对Dijkstra算法进行优化（因为优先队列的本质是堆）
 
-
-
-
-
-
+需注意
+使用top()函数前
+必须用empty()判断优先队列是否为空
+否则可能因为队空而出现错误
 
 
 
