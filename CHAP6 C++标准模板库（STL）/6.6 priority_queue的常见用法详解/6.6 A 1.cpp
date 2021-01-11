@@ -16,10 +16,10 @@ using namespace std;
 struct task {
 	string name;
 	int prior;
-	task() {
-		name.clear();
-		prior = 0;
-	}
+	//task() {
+	//	name.clear();
+	//	prior = 0;
+	//}
 	friend bool operator < (task t1, task t2) {
 		if (t1.prior != t2.prior)
 			return t1.prior > t2.prior;
@@ -33,10 +33,10 @@ map<string, int>m;
 
 int main() {
 	int n;
-	while (scanf("%d", &n)) {
+	while (cin>>n) {
 		for (int i = 0; i < n; i++) {
 			string temp, temptask;
-			scanf("%s", temp);
+			cin >> temp;
 			int left = temp.find("(");
 			int right = temp.find(")");
 			if (i == 0)m[temp.substr(0, left)] = 0;
@@ -58,11 +58,11 @@ int main() {
 		}
 		for (int i = 0; i < n; i++) {
 			if (i == 0) {
-				printf("%s", q.top().name);
+				cout << q.top().name;
 				q.pop();
 			}
 			else {
-				printf(" %s", q.top().name);
+				cout << " " << q.top().name;
 				q.pop();
 			}
 		}
@@ -72,5 +72,6 @@ int main() {
 	return 0;
 }
 
-//0x00BDE7FA 处(位于 ConsoleApplication2.exe 中)引发的异常: 0xC0000005: 写入位置 0x61542830 时发生访问冲突。
+//如果要读入和输出整个字符串
+//则只能使用cin和cout
 
