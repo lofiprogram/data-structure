@@ -116,6 +116,89 @@ priority_queue<int,vector<int>,greater<int> >q;
 
 事实上，即便是基本数据类型
 也可以使用下面讲解的结构体的优先级设置方法
+只不过第三个参数的写法不太一样
+
+B 结构体的优先级设置
+
+struct fruit{
+    string name；
+    int price；
+}；
+
+现在希望按水果的价格高的为优先级高
+就需要重载(overload)小于号"<"
+重载是指对已有的运算符进行重新定义
+也就是说，可以改变小于号的功能
+（例如把它重载为大于号的功能）
+此处只需知道它的写法即可
+
+struct fruit{
+    string name;
+    int price;
+    friend bool operator < (fruit f1, fruit f2){
+        return f1.price<f2.price;
+    }
+};
+
+fruit结构体中增加了一个函数
+其中"friend"为友元
+其具体含义此处不讨论
+
+后面的"bool operator < (fruit f1, fruit f2)"
+对fruit类型的操作符"<"进行了重载
+重载大于号会编译错误
+因为从数学上来说只需要重载小于号
+即f1>f2等价于判断f2<f1
+而f1==f2则等价于判断!(f1<f2)&&!(f2<f1)
+
+函数内部为"return f1.price<f2.price;"
+因此重载后小于号还是小于号的作用
+
+此时就可以直接定义fruit类型的优先队列
+其内部就是以价格高的水果为优先级高
+
+priority_queue<fruit>q;
+
+同理，如果想要以价格低的水果优先级为高
+只需要把结构体中的"return f1.price<f2.price;"
+改为"return f1.price>f2.price;"
+
+struct fruit{
+    string name;
+    int price;
+    friend bool operator < (fruit f1, fruit f2){
+        return f1.price>f2.price;
+    }
+}f1,f2,f3;
+
+priority_queue<fruit>q;
+f.name="桃子";f.price=3;
+f.name="梨子";f.price=4;
+f.name="苹果";f.price=1;
+q.push(f);q.push(f);q.push(f);
+cout<<q.top().name<<q.top().price<<endl;
+
+苹果 1
+
+此处对小于号的重载与排序函数sort中的cmp函数有些相似
+它们的参数都是两个变量
+函数内部都是return了ture或者false
+事实上，这两者的作用确实是类似的
+只不过效果看上去似乎是“相反”的
+
+在排序中
+如果是"return f1.price>f2.price;"
+那么则是按价格从高到低排序
+但是在优先队列中却是把价格低的放到队首
+原因在于
+优先队列本身默认的规则就是优先级高的放在队首
+因此把小于号重载为大于号的功能只是把这个规则反向了一下
+如无法理解
+不妨记住
+优先队列的这个函数与sort中的cmp函数的效果是相反的
+
+
+
 
 
 
