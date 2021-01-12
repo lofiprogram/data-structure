@@ -54,7 +54,7 @@ void calculate(string str)
 	}
 	printf("%.2f\n", n);
 }
- while(getline(cin,str),str!="0")
+
 int main()
 {
 	string str;
